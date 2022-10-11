@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const axios = require("axios");
-
+var bodyparser = require("body-parser");
 const login = {
   url: "https://eightwestsim.perf.davra.io/api/v1/iotdata",
   username: "admin",
@@ -19,19 +19,19 @@ app.get("/triggerRule", function (req, res) {
   console.log("Request recieved");
   console.log(req.body.value);
 
-  //   const respone = axios
-  //     .put(
-  //       login.url,
-  //       payload,
-  //       {
-  //         auth: {
-  //           username: login.username,
-  //           password: login.password,
-  //         },
-  //       },
-  //       { headers: { "Content-Type": "application/json" } }
-  //     )
-  //     .then(res.send("success"));
+  const respone = axios
+    .put(
+      login.url,
+      payload,
+      {
+        auth: {
+          username: login.username,
+          password: login.password,
+        },
+      },
+      { headers: { "Content-Type": "application/json" } }
+    )
+    .then(res.send("success"));
 
   console.log("IOT data recieved and relayed back to platform");
 });
