@@ -16,19 +16,24 @@ const payload = {
 };
 
 app.get("/triggerRule", function (req, res) {
-  const respone = axios
-    .put(
-      login.url,
-      payload,
-      {
-        auth: {
-          username: login.username,
-          password: login.password,
-        },
-      },
-      { headers: { "Content-Type": "application/json" } }
-    )
-    .then(res.send("success"));
+  console.log("Request recieved");
+  console.log(req.body.value);
+
+  //   const respone = axios
+  //     .put(
+  //       login.url,
+  //       payload,
+  //       {
+  //         auth: {
+  //           username: login.username,
+  //           password: login.password,
+  //         },
+  //       },
+  //       { headers: { "Content-Type": "application/json" } }
+  //     )
+  //     .then(res.send("success"));
+
+  console.log("IOT data recieved and relayed back to platform");
 });
 
 app.get("/", function (req, res) {
